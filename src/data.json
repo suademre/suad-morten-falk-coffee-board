@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "text": "What is Node.js?",
+    "author": "Falk"
+  },
+  {
+    "id": 2,
+    "text": "What is Express.ks?",
+    "author": "Morten"
+  },
+  {
+    "id": 3,
+    "text": "What is React.js?",
+    "author": "Suad"
+  },
+  {
+    "id": 4,
+    "text": "What is Vue.js?",
+    "author": "Falk"
+  },
+  {
+    "id": 5,
+    "text": "What is Anguler.js?",
+    "author": "Falk"
+  }
+]
