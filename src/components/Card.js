@@ -1,18 +1,16 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled from 'styled-components/macro'
 
 function Card({ text, author }) {
   return (
-    <>
-      <StyledCards>
-        <p>{text}</p>
-        <StyledAuthorText>{author}</StyledAuthorText>
-      </StyledCards>
-    </>
+    <Wrapper>
+      <p>{text}</p>
+      <StyledAuthorText>{author}</StyledAuthorText>
+    </Wrapper>
   )
 }
 
-const StyledCards = styled.div`
+const Wrapper = styled.section`
   min-width: 375px;
   max-height: 150px;
   display: flex;

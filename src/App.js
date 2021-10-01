@@ -1,18 +1,18 @@
-import React from "react";
-import Card from "./components/Card";
-import styled from "styled-components/macro";
+import React from 'react'
+import Card from './components/Card'
+import styled from 'styled-components/macro'
 
 function App({ data }) {
   return (
-    <Wrapper>
-      {data.map((card) => (
+    <Main>
+      {data.map(card => (
         <Card text={card.text} author={card.author} key={card.id} />
       ))}
-    </Wrapper>
-  );
+    </Main>
+  )
 }
 
-const Wrapper = styled.main`
+const Main = styled.main`
   height: 100%;
   border: 2px solid black;
   display: flex;
@@ -21,6 +21,6 @@ const Wrapper = styled.main`
   @media only screen and (min-width: 375px) {
     flex-flow: wrap row;
   }
-`;
+`
 
-export default App;
+export default App
