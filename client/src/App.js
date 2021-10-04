@@ -23,7 +23,7 @@ function App() {
   return (
     <Main>
       {cardData.map(card => (
-        <Card text={card.text} author={card.author} key={card.id} />
+        <Card text={card.text} author={card.author} key={card._id} />
       ))}
       <Footer>
         <Input onCreateCard={handleCreateCard} />
