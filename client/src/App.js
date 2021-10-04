@@ -1,10 +1,17 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Card from './components/Card'
 import styled from 'styled-components/macro'
 import Input from './components/Input'
 
-function App({ data }) {
-  const [cardData, setCardData] = useState(data)
+function App() {
+  const [cardData, setCardData] = useState([])
+
+  useEffect(() => {
+    fetch('/api/cards')
+      .then(res => res.json())
+      .then(data => setCardData(data))
+      .catch(error => console.error(error))
+  }, [])
 
   function handleCreateCard({ text, author, id }) {
     const newData = [...cardData, { id: id, text: text, author: author }]
