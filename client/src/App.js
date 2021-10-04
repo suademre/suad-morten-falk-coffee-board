@@ -3,6 +3,7 @@ import Card from './components/Card'
 import styled from 'styled-components/macro'
 import Input from './components/Input'
 import getCards from './services/getcards'
+import postCard from './services/postCard'
 
 function App() {
   const [cardData, setCardData] = useState([])
@@ -15,14 +16,7 @@ function App() {
 
   function createCard(card) {
     console.log(card)
-    fetch('/api/cards', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json;charset=utf-8',
-      },
-      body: JSON.stringify(card),
-    })
-      .then(res => res.json())
+    postCard(card)
       .then(data => setCardData([...cardData, data]))
       .catch(error => console.error(error))
   }
