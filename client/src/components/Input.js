@@ -1,17 +1,13 @@
 import React from 'react'
 import Button from './Button'
-import { nanoid } from 'nanoid'
 
 function Input({ onCreateCard }) {
   function handleSubmit(event) {
     event.preventDefault()
     const form = event.target
     const { text } = form.elements
-    console.log(text.value)
-    /* setCardData({ ...cardData, text: text.value }) */
 
     onCreateCard({
-      id: nanoid(),
       text: text.value,
       author: 'Falk',
     })

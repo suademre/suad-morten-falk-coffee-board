@@ -2,22 +2,23 @@ import React, { useEffect, useState } from 'react'
 import Card from './components/Card'
 import styled from 'styled-components/macro'
 import Input from './components/Input'
+import getCards from './services/getcards'
+import postCard from './services/postCard'
 
 function App() {
   const [cardData, setCardData] = useState([])
 
   useEffect(() => {
-    fetch('/api/cards')
-      .then(res => res.json())
+    getCards()
       .then(data => setCardData(data))
       .catch(error => console.error(error))
   }, [])
 
-  function handleCreateCard({ text, author, id }) {
-    const newData = [...cardData, { id: id, text: text, author: author }]
-
-    setCardData(newData)
-    console.log(newData)
+  function createCard(card) {
+    console.log(card)
+    postCard(card)
+      .then(data => setCardData([...cardData, data]))
+      .catch(error => console.error(error))
   }
 
   return (
@@ -26,7 +27,7 @@ function App() {
         <Card text={card.text} author={card.author} key={card._id} />
       ))}
       <Footer>
-        <Input onCreateCard={handleCreateCard} />
+        <Input onCreateCard={createCard} />
       </Footer>
     </Main>
   )
